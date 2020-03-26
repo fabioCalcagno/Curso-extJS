@@ -12,29 +12,29 @@
 
 	<script type="text/javascript">
 
-	Ext.define('Contato',{
+	Ext.define('Usuario',{
 		extend: 'Ext.data.Model',
 
 		fields: [
-			{name: 'ID', type: 'int'},
+			{name: 'id', type: 'int'},
 			{name: 'nome', type: 'string'},
-			{name: 'email', type: 'string'}
+			{name: 'cpf', type: 'string'}
 		],
 
-		idProperty: 'ID' //caso id não seja "id"
+		//idProperty: 'ID' //caso id não seja "id"
 	});
 
-	Ext.define('ContatosStore',{
+	Ext.define('UsuarioStore',{
 		extend: 'Ext.data.Store',
-		model: 'Contato',
+		model: 'Usuario',
 		proxy: {
 			type: 'ajax',
-			url: 'php/listaContatosXml.php',
+			url: 'php/usuariosController.php',
 			
 			reader: {
-				type: 'xml', //json ou xml
-				root: 'contatos',
-				record: 'contato'
+				type: 'json', //json ou xml
+				root: 'usuarios',
+				record: 'usuario'
 			}
 		},
 		autoLoad: true
@@ -43,7 +43,7 @@
 	Ext.onReady(function(){
 
 
-		var store = Ext.create('ContatosStore');
+		var store = Ext.create('UsuarioStore');
 
 		console.log(store);
 		
