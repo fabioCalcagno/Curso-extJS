@@ -8,4 +8,5 @@ p {
 
 .icon-heart {
 	background-image: url(images/heart.png);
+	background-repeat: no-repeat;
 }
